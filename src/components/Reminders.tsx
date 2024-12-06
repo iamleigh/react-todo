@@ -23,12 +23,14 @@ const Reminders: React.FC = () => {
 		}
 	}
 
-	const removeItem = ( event: any ) => {
-		const button = event.target;
-		const index = parseInt( button.getAttribute( 'data-item-id' ) );
+	const removeItem = ( event: React.MouseEvent<HTMLButtonElement> ) => {
+		const button = event.target as HTMLButtonElement;
+		const index = button.getAttribute( 'data-item-id' );
 
-		const updatedTodos = todos.filter( todo => todo.id !== index );
-		setTodos( updatedTodos );
+		if ( null !== index && '' !== index ) {
+			const updatedTodos = todos.filter( todo => todo.id !== parseInt( index ) );
+			setTodos( updatedTodos );
+		}
 	}
 
 	const handleEnter = ( e: { key: string; } ) => {
