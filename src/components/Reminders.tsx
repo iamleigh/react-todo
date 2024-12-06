@@ -3,15 +3,21 @@ import React, { useState } from "react";
 import { ListItem } from "./ListItem";
 
 const Reminders: React.FC = () => {
-	const [todos, setTodos] = useState<{ id: number, name: string }[]>([]);
+	const [todos, setTodos] = useState<{ id: number, label: string }[]>([]);
 	const [counter, setCounter] = useState<number>(1);
+	const [todoLabel, setTodoLabel] = useState<string>('');
 
 	const addItem = () => {
-		setTodos( ( v ) => [
-			...v,
-			{ id: counter, name: `Sample #${ counter }` }
-		]);
-		setCounter( prev => prev + 1 ); // Increment the counter
+		if ( '' !== todoLabel ) {
+			// Add new item to the list
+			setTodos( ( v ) => [
+				...v,
+				{ id: counter, label: todoLabel }
+			]);
+
+			// Increment the counter
+			setCounter( prev => prev + 1 );
+		}
 	}
 
 	const handleEnter = ( e: { key: string; } ) => {
@@ -20,15 +26,19 @@ const Reminders: React.FC = () => {
 		}
 	}
 
+	const handleInputChange = ( e: { target: { value: React.SetStateAction<string>; }; } ) => {
+		setTodoLabel( e.target.value );
+	}
+
 	return (
 		<div className="lq-reminders">
 			<div className="lq-reminders__insert">
-				<input type="text" onKeyDown={ handleEnter } />
+				<input type="text" onKeyDown={ handleEnter } onChange={ handleInputChange } />
 				<button onClick={ addItem }>Add New</button>
 			</div>
 
 			<ul className="lq-reminders__list">
-				{ todos.map( ( todo, index ) => <ListItem key={ index } name={ todo.name } /> ) }
+				{ todos.map( ( todo, index ) => <ListItem key={ index } name={ todo.label } /> ) }
 			</ul>
 		</div>
 	);
