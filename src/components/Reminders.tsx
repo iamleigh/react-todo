@@ -1,4 +1,6 @@
-const Reminders = () => {
+import React from "react";
+
+const Reminders: React.FC = () => {
 	return (
 		<div className="lq-reminders">
 			<div className="lq-reminders__insert">
