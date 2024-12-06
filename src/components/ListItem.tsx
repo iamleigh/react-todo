@@ -22,7 +22,7 @@ const ListItem: React.FC<ChildProps> = ({ name, itemId, clearHandler }) => {
 				id={ `todo-item--${ itemId }` }
 				className="lq-item__check"
 				checked={ completed }
-				onClick={ completeItem } />
+				onChange={ completeItem } />
 
 			<label htmlFor={ `todo-item--${ itemId }` } className="lq-item__name">{ name }</label>
 
