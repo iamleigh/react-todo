@@ -17,6 +17,9 @@ const Reminders: React.FC = () => {
 
 			// Increment the counter
 			setCounter( prev => prev + 1 );
+
+			// Clear input once item gets added
+			setTodoLabel( '' );
 		}
 	}
 
@@ -33,7 +36,7 @@ const Reminders: React.FC = () => {
 	return (
 		<div className="lq-reminders">
 			<div className="lq-reminders__insert">
-				<input type="text" onKeyDown={ handleEnter } onChange={ handleInputChange } />
+				<input type="text" value={ todoLabel } onKeyDown={ handleEnter } onChange={ handleInputChange } />
 				<button onClick={ addItem }>Add New</button>
 			</div>
 
