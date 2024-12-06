@@ -19,7 +19,7 @@ const Reminders: React.FC = () => {
 			</div>
 
 			<ul className="lq-reminders__list">
-				{ items.map( () => <ListItem name="text" /> ) }
+				{ items.map( ( item, index ) => <ListItem key={ index } name={ `Item #${ item }` } /> ) }
 			</ul>
 		</div>
 	);
