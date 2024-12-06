@@ -7,8 +7,11 @@ import './App.css'
 function App() {
 	return (
 		<>
-			<Logo />
-			<Reminders />
+			<section>
+				<Logo />
+				<Reminders />
+			</section>
+
 			<Footer />
 		</>
 	)
