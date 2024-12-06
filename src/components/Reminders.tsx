@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { ListItem } from "./ListItem";
 
 const Reminders: React.FC = () => {
-	const [items, setItems] = useState<{ id: number, name: string }[]>([]);
+	const [todos, setTodos] = useState<{ id: number, name: string }[]>([]);
 	const [counter, setCounter] = useState<number>(1);
 
 	const addItem = () => {
-		setItems( ( v ) => [
+		setTodos( ( v ) => [
 			...v,
 			{ id: counter, name: `Sample #${ counter }` }
 		]);
@@ -28,7 +28,7 @@ const Reminders: React.FC = () => {
 			</div>
 
 			<ul className="lq-reminders__list">
-				{ items.map( ( item, index ) => <ListItem key={ index } name={ item.name } /> ) }
+				{ todos.map( ( todo, index ) => <ListItem key={ index } name={ todo.name } /> ) }
 			</ul>
 		</div>
 	);
