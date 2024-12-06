@@ -4,10 +4,11 @@ import { ListItem } from "./ListItem";
 
 const Reminders: React.FC = () => {
 	const [items, setItems] = useState<number[]>([]);
+	const [counter, setCounter] = useState<number>(1);
 
 	const addItem = () => {
-		const newItem = Date.now();
-		setItems( v => [ ...v, newItem ] );
+		setItems( v => [ ...v, counter ] );
+		setCounter( prev => prev + 1 ); // Increment the counter
 	}
 
 	return (
