@@ -23,6 +23,14 @@ const Reminders: React.FC = () => {
 		}
 	}
 
+	const removeItem = ( event: any ) => {
+		const button = event.target;
+		const index = parseInt( button.getAttribute( 'data-item-id' ) );
+
+		const updatedTodos = todos.filter( todo => todo.id !== index );
+		setTodos( updatedTodos );
+	}
+
 	const handleEnter = ( e: { key: string; } ) => {
 		if ( 'Enter' === e.key ) {
 			addItem();
@@ -41,7 +49,15 @@ const Reminders: React.FC = () => {
 			</div>
 
 			<ul className="lq-reminders__list">
-				{ todos.map( ( todo, index ) => <ListItem key={ index } name={ todo.label } /> ) }
+				{ todos.map( ( todo, index ) => {
+					return (
+						<ListItem
+							key={ index }
+							name={ todo.label }
+							itemId={ todo.id }
+							clearHandler={ removeItem } />
+					);
+				}) }
 			</ul>
 		</div>
 	);
