@@ -1,38 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 type ChildProps = {
 	name: string,
 	itemId: number,
-	clearHandler: ( event: React.MouseEvent<HTMLButtonElement> ) => void,
+	done: boolean,
+	checkHandler?: ( e: React.ChangeEvent<HTMLInputElement> ) => void,
+	clearHandler?: ( event: React.MouseEvent<HTMLButtonElement> ) => void,
 }
 
-const ListItem: React.FC<ChildProps> = ({ name, itemId, clearHandler }) => {
-	const [completed, setCompleted] = useState<boolean>(false);
-
-	const completeItem = () => {
-		setCompleted( ! completed );
-	}
-
+const ListItem: React.FC<ChildProps> = ({ name, itemId, done, checkHandler, clearHandler }) => {
 	return (
-		<li className={ `lq-item${ completed ? ' lq-item--done' : '' }` }>
+		<li
+			className={ `lq-item${ done ? ' lq-item--done' : '' }` }
+			data-item-id={ itemId }>
 			<input
 				type="checkbox"
 				id={ `todo-item--${ itemId }` }
 				className="lq-item__check"
-				checked={ completed }
-				onChange={ completeItem } />
+				defaultChecked={ done }
+				onChange={ checkHandler } />
 
 			<label htmlFor={ `todo-item--${ itemId }` } className="lq-item__name">{ name }</label>
 
-			<button
-				className="lq-item__remove"
-				data-item-id={ itemId }
-				onClick={ clearHandler }>
-				<FontAwesomeIcon icon={ faXmark } />
-				<span>Delete Item</span>
-			</button>
+			{ clearHandler &&
+				<button
+					className="lq-item__remove"
+					onClick={ clearHandler }>
+					<FontAwesomeIcon icon={ faXmark } />
+					<span>Delete Item</span>
+				</button>
+			}
 		</li>
 	);
 };
