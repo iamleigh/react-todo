@@ -23,8 +23,8 @@ const Reminders: React.FC = () => {
 		}
 	}
 
-	const removeItem = ( event: React.MouseEvent<HTMLButtonElement> ) => {
-		const button = event.target as HTMLButtonElement;
+	const removeItem = ( e: React.MouseEvent<HTMLButtonElement> ) => {
+		const button = e.target as HTMLButtonElement;
 		const index = button.getAttribute( 'data-item-id' );
 
 		if ( null !== index && '' !== index ) {
