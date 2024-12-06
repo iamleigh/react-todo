@@ -1,4 +1,6 @@
-const Logo = () => {
+import React from 'react';
+
+const Logo: React.FC = () => {
 	return (
 		<div className="lq-logo lq-logo--center">
 			<div className="lq-logo__icon" aria-hidden="true">
