@@ -11,10 +11,16 @@ const Reminders: React.FC = () => {
 		setCounter( prev => prev + 1 ); // Increment the counter
 	}
 
+	const handleEnter = ( e: { key: string; } ) => {
+		if ( 'Enter' === e.key ) {
+			addItem();
+		}
+	}
+
 	return (
 		<div className="lq-reminders">
 			<div className="lq-reminders__insert">
-				<input type="text" />
+				<input type="text" onKeyDown={ handleEnter } />
 				<button onClick={ addItem }>Add New</button>
 			</div>
 
