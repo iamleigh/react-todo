@@ -70,7 +70,7 @@ const Reminders: React.FC = () => {
 	return (
 		<div className="lq-reminders">
 			<div className="lq-reminders__insert">
-				<input type="text" value={ todoLabel } onKeyDown={ handleEnter } onChange={ handleInputChange } />
+				<input type="text" value={ todoLabel || '' } onKeyDown={ handleEnter } onChange={ handleInputChange } />
 				<button onClick={ addItem }>Add New</button>
 			</div>
 
