@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
 import { ListItem } from "./ListItem";
+import { Button } from "../elements/Button";
 
 const Reminders: React.FC = () => {
 	const [todos, setTodos] = useState<{ id: number, label: string, done: boolean }[]>([]);
@@ -82,7 +82,9 @@ const Reminders: React.FC = () => {
 					onKeyDown={ handleEnter }
 					onChange={ handleInputChange } />
 
-				<button onClick={ addItem }>Add New</button>
+				<Button
+					label="Add New"
+					onClick={ addItem } />
 			</div>
 
 			<ul className="lq-reminders__list">
@@ -100,11 +102,10 @@ const Reminders: React.FC = () => {
 			</ul>
 
 			{ todos.length > 0 &&
-				<button
-					onClick={ handleClear }
-					{ ...( done === 0 && { disabled: true }) }>
-					Clear Completed
-				</button>
+				<Button
+					label="Clear Completed"
+					{ ...( done === 0 && { disabled: true }) }
+					onClick={ handleClear } />
 			}
 		</div>
 	);
