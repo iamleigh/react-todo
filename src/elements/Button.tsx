@@ -2,33 +2,52 @@ import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	label: String,
-	lead?: React.ReactNode,
-	trail?: React.ReactNode,
+	icon?: React.ReactNode,
+	lead?: React.ReactNode, // Leading icon
+	trail?: React.ReactNode, // Trailing icon
+	size?: String,
 	design?: String,
 	hideLabel?: Boolean,
 };
 
-const Button: React.FC<ButtonProps> = ({ label, lead, trail, design, hideLabel, ...props }) => {
-	let type;
+const Button: React.FC<ButtonProps> = ({ label, icon, lead, trail, size, design, hideLabel, ...props }) => {
+	let btnClass = 'lq-button';
 
-	// Limit button design options
+	// Set icon button class
+	btnClass += icon ? ' lq-button--icon' : '';
+
+	// Set button style class
 	switch ( design ) {
 		case 'primary':
 		case 'secondary':
 		case 'tertiary':
-			type = ` lq-button--${design}`;
+			btnClass += ` lq-button--${ design }`;
 			break;
 
 		default:
-			type = ' lq-button--primary';
+			btnClass += ' lq-button--primary';
+			break;
+	}
+
+	// Set button size class
+	switch ( size ) {
+		case 'sm':
+		case 'md':
+		case 'lg':
+			btnClass += ` lq-button--${ size }`;
+			break
+
+		default:
+			btnClass += ' lq-button--md';
 			break;
 	}
 
 	return (
-		<button className={`lq-button${ type }`} { ...props }>
-			{ lead }
-			<span className={`${ hideLabel ? ' lq-sronly' : '' }`}>{ label }</span>
-			{ trail }
+		<button className={ btnClass } { ...props }>
+			{ icon }
+			{ (!icon && lead) && lead }
+			<span className={`${ icon ? ' lq-sronly' : '' }`}>{ label }</span>
+			{ (!icon && trail) && trail }
 		</button>
 	);
 }
