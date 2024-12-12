@@ -1,16 +1,15 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	label: String,
+	label: string,
 	icon?: React.ReactNode,
 	lead?: React.ReactNode, // Leading icon
 	trail?: React.ReactNode, // Trailing icon
-	size?: String,
-	design?: String,
-	hideLabel?: Boolean,
+	size?: string,
+	design?: string,
 };
 
-const Button: React.FC<ButtonProps> = ({ label, icon, lead, trail, size, design, hideLabel, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ label, icon, lead, trail, size, design, ...props }) => {
 	let btnClass = 'lq-button';
 
 	// Set icon button class
