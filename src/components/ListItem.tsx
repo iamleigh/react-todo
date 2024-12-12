@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "../elements/Button";
 
 type ChildProps = {
 	name: string,
@@ -22,15 +23,17 @@ const ListItem: React.FC<ChildProps> = ({ name, itemId, done, checkHandler, clea
 				checked={ done }
 				onChange={ checkHandler } />
 
-			<label htmlFor={ `todo-item--${ itemId }` } className="lq-item__name">{ name }</label>
+			<label
+				htmlFor={ `todo-item--${ itemId }` }
+				className="lq-item__name">
+				{ name }
+			</label>
 
 			{ clearHandler &&
-				<button
-					className="lq-item__remove"
-					onClick={ clearHandler }>
-					<FontAwesomeIcon icon={ faXmark } />
-					<span>Delete Item</span>
-				</button>
+				<Button
+					label="Delete Item"
+					lead={ <FontAwesomeIcon icon={ faXmark } /> }
+					onClick={ clearHandler }/>
 			}
 		</li>
 	);
