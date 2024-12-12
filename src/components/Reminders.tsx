@@ -66,6 +66,7 @@ const Reminders: React.FC = () => {
 	const handleClear = () => {
 		const updatedTodos = todos.filter( todo => todo.done !== true );
 		setTodos( updatedTodos );
+		setDone( 0 );
 	}
 
 	const handleInputChange = ( e: { target: { value: React.SetStateAction<string>; }; } ) => {
