@@ -32,7 +32,9 @@ const Reminders: React.FC = () => {
 		if ( null !== index ) {
 			const updatedTodos = todos.filter( todo => todo.id !== parseInt( index ) );
 			setTodos( updatedTodos );
-			setDone( done - 1 );
+			if ( done ) {
+				setDone( done - 1 );
+			}
 		}
 	}
 
