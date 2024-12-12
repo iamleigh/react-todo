@@ -103,8 +103,6 @@ const Reminders: React.FC = () => {
 					Clear Completed
 				</button>
 			}
-
-			{ done }
 		</div>
 	);
 }
