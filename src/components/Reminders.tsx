@@ -6,6 +6,7 @@ const Reminders: React.FC = () => {
 	const [todos, setTodos] = useState<{ id: number, label: string, done: boolean }[]>([]);
 	const [counter, setCounter] = useState<number>(1);
 	const [todoLabel, setTodoLabel] = useState<string>('');
+	const [done, setDone] = useState<number>(0);
 
 	const addItem = () => {
 		if ( '' !== todoLabel ) {
@@ -31,6 +32,7 @@ const Reminders: React.FC = () => {
 		if ( null !== index ) {
 			const updatedTodos = todos.filter( todo => todo.id !== parseInt( index ) );
 			setTodos( updatedTodos );
+			setDone( done - 1 );
 		}
 	}
 
@@ -49,6 +51,7 @@ const Reminders: React.FC = () => {
 			};
 
 			setTodos( updatedTodos );
+			setDone( input.checked ? done + 1 : done - 1 );
 		}
 	}
 
@@ -93,7 +96,15 @@ const Reminders: React.FC = () => {
 				}) }
 			</ul>
 
-			<button onClick={ handleClear }>Clear Completed</button>
+			{ todos.length > 0 &&
+				<button
+					onClick={ handleClear }
+					{ ...( done === 0 && { disabled: true }) }>
+					Clear Completed
+				</button>
+			}
+
+			{ done }
 		</div>
 	);
 }
