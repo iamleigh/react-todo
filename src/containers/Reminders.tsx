@@ -3,7 +3,7 @@ import { Button } from "../elements/Button";
 import { Input } from "../elements/Input";
 import { Todos } from "../components/Todos";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAdd } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Reminders: React.FC = () => {
 	const [todos, setTodos] = useState<{ id: number, label: string, done: boolean }[]>([]);
@@ -88,19 +88,20 @@ const Reminders: React.FC = () => {
 					icon={<FontAwesomeIcon icon={ faAdd } />}
 					label="Add New"
 					onClick={ addItem } />
+
+				{ todos.length > 0 &&
+					<Button
+						icon={<FontAwesomeIcon icon={ faTrash } />}
+						label="Clear Completed"
+						{ ...( done === 0 && { disabled: true }) }
+						onClick={ handleClear } />
+				}
 			</div>
 
 			<Todos
 				items={ todos }
 				checkHandler={ completeItem }
 				clearHandler={ removeItem } />
-
-			{ todos.length > 0 &&
-				<Button
-					label="Clear Completed"
-					{ ...( done === 0 && { disabled: true }) }
-					onClick={ handleClear } />
-			}
 		</div>
 	);
 }
