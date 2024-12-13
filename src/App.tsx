@@ -1,4 +1,4 @@
-import { Logo } from './components/Logo'
+import { Logo } from './elements/Logo'
 import { Reminders } from './containers/Reminders'
 import { Footer } from './components/Footer'
 
