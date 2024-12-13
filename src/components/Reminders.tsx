@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { TodoItem } from "../elements/TodoItem";
 import { Button } from "../elements/Button";
 import { Input } from "../elements/Input";
+import { Todos } from "./Todos";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
@@ -90,19 +90,10 @@ const Reminders: React.FC = () => {
 					onClick={ addItem } />
 			</div>
 
-			<ul className="lq-reminders__list">
-				{ todos.map( ( todo, index ) => {
-					return (
-						<TodoItem
-							key={ index }
-							name={ todo.label }
-							itemId={ todo.id }
-							done={ todo.done }
-							checkHandler={ completeItem }
-							clearHandler={ removeItem } />
-					);
-				}) }
-			</ul>
+			<Todos
+				items={ todos }
+				checkHandler={ completeItem }
+				clearHandler={ removeItem } />
 
 			{ todos.length > 0 &&
 				<Button
