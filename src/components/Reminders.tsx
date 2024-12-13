@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ListItem } from "../elements/ListItem";
+import { TodoItem } from "../elements/TodoItem";
 import { Button } from "../elements/Button";
 import { Input } from "../elements/Input";
 
@@ -90,7 +90,7 @@ const Reminders: React.FC = () => {
 			<ul className="lq-reminders__list">
 				{ todos.map( ( todo, index ) => {
 					return (
-						<ListItem
+						<TodoItem
 							key={ index }
 							name={ todo.label }
 							itemId={ todo.id }

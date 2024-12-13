@@ -11,7 +11,7 @@ type ChildProps = {
 	clearHandler?: ( event: React.MouseEvent<HTMLButtonElement> ) => void,
 }
 
-const ListItem: React.FC<ChildProps> = ({ name, itemId, done, checkHandler, clearHandler }) => {
+const TodoItem: React.FC<ChildProps> = ({ name, itemId, done, checkHandler, clearHandler }) => {
 	return (
 		<li
 			className={ `lq-item${ done ? ' lq-item--done' : '' }` }
@@ -39,4 +39,4 @@ const ListItem: React.FC<ChildProps> = ({ name, itemId, done, checkHandler, clea
 	);
 };
 
-export { ListItem };
+export { TodoItem };
