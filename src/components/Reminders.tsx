@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { TodoItem } from "../elements/TodoItem";
 import { Button } from "../elements/Button";
 import { Input } from "../elements/Input";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
 const Reminders: React.FC = () => {
 	const [todos, setTodos] = useState<{ id: number, label: string, done: boolean }[]>([]);
@@ -83,6 +85,7 @@ const Reminders: React.FC = () => {
 					onChange={ handleInputChange } />
 
 				<Button
+					icon={<FontAwesomeIcon icon={ faAdd } />}
 					label="Add New"
 					onClick={ addItem } />
 			</div>
