@@ -2,7 +2,7 @@ import React from "react";
 import { TodoList } from "../elements/TodoList";
 import { TodoItem } from "../elements/TodoItem";
 
-interface TodosProps {
+interface TodosProps extends React.HTMLAttributes<HTMLUListElement> {
 	items: ItemsData[];
 	checkHandler: ( e: React.ChangeEvent<HTMLInputElement> ) => void,
 	clearHandler: ( e: React.MouseEvent<HTMLButtonElement> ) => void,
@@ -14,9 +14,9 @@ interface ItemsData {
 	done: boolean,
 }
 
-const Todos: React.FC<TodosProps> = ({ items, checkHandler, clearHandler }) => {
+const Todos: React.FC<TodosProps> = ({ items, checkHandler, clearHandler, ...props }) => {
 	return (
-		<TodoList>
+		<TodoList { ...props }>
 			{ items.map( ( item, index ) => {
 				return (
 					<TodoItem
