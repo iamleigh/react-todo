@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ListItem } from "../elements/ListItem";
 import { Button } from "../elements/Button";
+import { Input } from "../elements/Input";
 
 const Reminders: React.FC = () => {
 	const [todos, setTodos] = useState<{ id: number, label: string, done: boolean }[]>([]);
@@ -76,8 +77,7 @@ const Reminders: React.FC = () => {
 	return (
 		<div className="lq-reminders">
 			<div className="lq-reminders__insert">
-				<input
-					type="text"
+				<Input
 					value={ todoLabel || '' }
 					onKeyDown={ handleEnter }
 					onChange={ handleInputChange } />
