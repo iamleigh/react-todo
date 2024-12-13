@@ -1,6 +1,5 @@
 import { Logo } from './components/Logo'
 import { Reminders } from './containers/Reminders'
-// import { MousePosition } from './exercises/MousePosition'
 import { Footer } from './components/Footer'
 
 import './App.css'
