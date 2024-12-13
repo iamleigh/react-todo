@@ -88,15 +88,11 @@ const Reminders: React.FC = () => {
 					icon={<FontAwesomeIcon icon={ faAdd } />}
 					label="Add New"
 					onClick={ addItem } />
-
-				{ todos.length > 0 &&
-					<Button
-						icon={<FontAwesomeIcon icon={ faTrash } />}
-						label="Clear Completed"
-						{ ...( done === 0 && { disabled: true }) }
-						onClick={ handleClear } />
-				}
 			</div>
+
+			{ todos.length > 0 && (
+				<div>{ done } Completed • <button type="button" onClick={ handleClear } disabled={!( done > 0 )}>Clear</button></div>
+			)}
 
 			<Todos
 				items={ todos }
