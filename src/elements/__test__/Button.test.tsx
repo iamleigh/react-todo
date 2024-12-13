@@ -4,7 +4,8 @@ import { Button } from '../Button';
 
 test( 'Button: Rendering with required props', () => {
 	render( <Button label="Hello Button" /> );
-	expect( true ).toBeTruthy();
+	const element = screen.getByText( 'Hello Button' );
+	expect( element ).toBeInTheDocument();
 });
 
 test( 'Button: Pass onClick prop when clicked', () => {

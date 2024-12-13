@@ -3,8 +3,9 @@ import { render, screen } from '@testing-library/react';
 import { Input } from '../Input';
 
 test( 'Input: Render element', () => {
-	render ( <Input /> );
-	expect( true ).toBeTruthy();
+	render ( <Input data-testid="input-test-render" /> );
+	const element = screen.getByTestId( 'input-test-render' );
+	expect( element ).toBeInTheDocument();
 });
 
 test( 'Input: Pass value', () => {
