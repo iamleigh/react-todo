@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ListItem } from "./ListItem";
+import { ListItem } from "../elements/ListItem";
 import { Button } from "../elements/Button";
 
 const Reminders: React.FC = () => {
