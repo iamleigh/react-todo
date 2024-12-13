@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "../elements/Button";
 import { Input } from "../elements/Input";
-import { Todos } from "./Todos";
+import { Todos } from "../components/Todos";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
