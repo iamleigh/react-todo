@@ -18,10 +18,6 @@ tab_width = 4
 indent_style = space
 indent_size = 2
 
-# Overwrite configs for specific "js" files:
-[webpack.mix.js]
-quote_type = single
-
 # Overwrite configs for all "tsx" files inside directories:
 # "src/elements", "src/components", and "src/containers"
 [{src/**/*.tsx}]
