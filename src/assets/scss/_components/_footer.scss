@@ -1,0 +1,29 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Footer
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(footer) {
+	padding: 16px 24px 40px;
+	color: tint($color-secondary, 50%);
+	text-align: center;
+
+	p {
+		margin: 0;
+		padding: 0;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 18px;
+	}
+
+	a {
+		color: tint($color-secondary, 80%);
+		text-decoration: none;
+
+		&:hover {
+			color: $color-neutral;
+		}
+	}
+}
