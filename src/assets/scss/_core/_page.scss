@@ -14,21 +14,10 @@ body {
 }
 
 body {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
 	background: $color-secondary;
 
 	* {
 		box-sizing: border-box;
-	}
-
-	section {
-		flex: 1;
-	}
-
-	footer {
-		flex: 0 0 auto;
 	}
 }
 
@@ -38,4 +27,20 @@ body {
 
 *:focus {
 	outline: none;
+}
+
+@include block(page) {
+	@include modifier(full) {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+
+		section {
+			flex: 1;
+		}
+
+		footer {
+			flex: 0 0 auto;
+		}
+	}
 }
