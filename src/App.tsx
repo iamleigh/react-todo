@@ -2,15 +2,19 @@ import { Logo } from './elements/Logo'
 import { Reminders } from './containers/Reminders'
 import { Footer } from './components/Footer'
 
-import './App.css'
+import './assets/scss/main.scss'
 
 function App() {
 	return (
 		<>
 			<section>
-				<div className="lq-box">
-					<Logo />
-					<Reminders />
+				<div className="rocketui-todo">
+					<div className="rocketui-todo__header">
+						<Logo />
+					</div>
+					<div className="rocketui-todo__body">
+						<Reminders />
+					</div>
 				</div>
 			</section>
 
