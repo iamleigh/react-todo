@@ -32,4 +32,15 @@
 		border-radius: 0 0 8px 8px;
 		background: $color-secondary;
 	}
+
+	// TBD: Float the clear completed tasks bar below the form and on top of the list, without affecting height when it appears.
+	@include element(clear) {
+		display: none;
+	}
+
+	@include element(list) {
+		margin: 8px 0;
+		padding: 0;
+		list-style: none;
+	}
 }

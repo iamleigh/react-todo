@@ -91,7 +91,7 @@ const Reminders: React.FC = () => {
 			</div>
 
 			{ todos.length > 0 && (
-				<div className="todo-clearBox">
+				<div className="rocketui-todo__clear">
 					{ done } Completed • <button type="button" className="" disabled={!( done > 0 )} onClick={ handleClear }>Clear</button>
 				</div>
 			)}
