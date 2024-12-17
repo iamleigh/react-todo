@@ -77,8 +77,8 @@ const Reminders: React.FC = () => {
 	}
 
 	return (
-		<div className="lq-reminders">
-			<div className="lq-reminders__insert">
+		<>
+			<div className="rocketui-todo__form">
 				<Input
 					value={ todoLabel || '' }
 					onKeyDown={ handleEnter }
@@ -100,7 +100,7 @@ const Reminders: React.FC = () => {
 				items={ todos }
 				checkHandler={ completeItem }
 				clearHandler={ removeItem } />
-		</div>
+		</>
 	);
 }
 

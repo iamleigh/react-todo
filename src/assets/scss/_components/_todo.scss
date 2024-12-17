@@ -1,0 +1,35 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Todo
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(todo) {
+	width: 100%;
+	max-width: 620px;
+	margin: 0 auto; // Always center the todo app
+	padding: 24px;
+
+	@include element(header) {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		padding: 24px;
+		border-radius: 8px 8px 0 0;
+		background: shade($color-secondary, 20%);
+
+		&:not(:last-child) {
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	@include element(form) {
+		display: flex;
+		flex-flow: row wrap;
+		padding: 24px;
+		border-radius: 0 0 8px 8px;
+		background: $color-secondary;
+	}
+}

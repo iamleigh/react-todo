@@ -12,9 +12,8 @@ function App() {
 					<div className="rocketui-todo__header">
 						<Logo />
 					</div>
-					<div className="rocketui-todo__body">
-						<Reminders />
-					</div>
+
+					<Reminders />
 				</div>
 			</section>
 
