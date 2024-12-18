@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "./Button";
@@ -12,10 +12,14 @@ type ChildProps = {
 }
 
 const TodoItem: React.FC<ChildProps> = ({ name, itemId, done, checkHandler, clearHandler }) => {
+	const [hover, setHover] = useState<boolean>(false);
+
 	return (
 		<li
-			className={ `rocketui-todo-item${ done ? ' rocketui-todo-item--done' : '' }` }
-			data-item-id={ itemId }>
+			className={ `rocketui-todo-item${ done ? ' rocketui-todo-item--done' : '' }${ hover ? ' rocketui-todo-item--hover' : '' }` }
+			data-item-id={ itemId }
+			onMouseEnter={() => setHover(true)}
+			onMouseLeave={() => setHover(false)}>
 			<span className="rocketui-todo-item__label">
 				{ name }
 			</span>
