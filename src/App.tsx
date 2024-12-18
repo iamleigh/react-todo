@@ -2,6 +2,7 @@ import { Logo } from './elements/Logo'
 import { Reminders } from './containers/Reminders'
 import { Footer } from './components/Footer'
 
+import './assets/scss/webfont.scss'
 import './assets/scss/main.scss'
 
 function App() {
