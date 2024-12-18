@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Button } from "../elements/Button";
 import { Input } from "../elements/Input";
 import { Todos } from "../components/Todos";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
 const Reminders: React.FC = () => {
 	const [todos, setTodos] = useState<{ id: number, label: string, done: boolean }[]>([]);
