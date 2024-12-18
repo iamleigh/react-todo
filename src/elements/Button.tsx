@@ -45,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({ label, icon, lead, trail, size, design,
 		<button className={ btnClass } { ...props }>
 			{ icon }
 			{ (!icon && lead) && lead }
-			<span className={`${ icon ? ' lq-sronly' : '' }`}>{ label }</span>
+			<span className={`${ icon ? ' rocketui-screen-reader-only' : '' }`}>{ label }</span>
 			{ (!icon && trail) && trail }
 		</button>
 	);
