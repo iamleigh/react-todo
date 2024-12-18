@@ -14,26 +14,27 @@ type ChildProps = {
 const TodoItem: React.FC<ChildProps> = ({ name, itemId, done, checkHandler, clearHandler }) => {
 	return (
 		<li
-			className={ `lq-item${ done ? ' lq-item--done' : '' }` }
+			className={ `rocketui-todo-item${ done ? ' rocketui-todo-item--done' : '' }` }
 			data-item-id={ itemId }>
+			<span className="rocketui-todo-item__label">
+				{ name }
+			</span>
+
 			<input
 				type="checkbox"
 				id={ `todo-item--${ itemId }` }
-				className="lq-item__check"
+				className="rocketui-todo-item__check"
+				aria-label={ `${ done ? 'Complete' : 'Uncomplete' } ${ name }` }
 				checked={ done }
 				onChange={ checkHandler } />
 
-			<label
-				htmlFor={ `todo-item--${ itemId }` }
-				className="lq-item__name">
-				{ name }
-			</label>
-
 			{ clearHandler &&
 				<Button
+					type="button"
 					label="Delete Item"
-					lead={ <FontAwesomeIcon icon={ faXmark } /> }
-					onClick={ clearHandler }/>
+					icon={ <FontAwesomeIcon icon={ faXmark } /> }
+					className="rocketui-todo-item__remove" // Overwrite all styles from component
+					onClick={ clearHandler } />
 			}
 		</li>
 	);
