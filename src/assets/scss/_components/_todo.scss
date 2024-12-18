@@ -31,6 +31,14 @@
 		padding: 24px;
 		border-radius: 0 0 8px 8px;
 		background: $color-secondary;
+
+		input,
+		textarea,
+		button {
+			&:not(:last-child) {
+				margin-right: 12px;
+			}
+		}
 	}
 
 	// TBD: Float the clear completed tasks bar below the form and on top of the list, without affecting height when it appears.
