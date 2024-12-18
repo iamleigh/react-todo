@@ -41,13 +41,39 @@
 		}
 	}
 
-	// TBD: Float the clear completed tasks bar below the form and on top of the list, without affecting height when it appears.
 	@include element(clear) {
-		display: none;
+		position: absolute;
+		margin: 12px 0;
+		color: tint($color-primary, 50%);
+		font-size: 14px;
+		line-height: 20px;
+
+		button {
+			cursor: pointer;
+			display: inline;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: transparent;
+			color: tint($color-primary, 80%);
+			font-size: inherit;
+			font-weight: 600;
+			line-height: inherit;
+			transition: 0.2s ease;
+
+			&:hover {
+				color: $color-neutral;
+			}
+
+			&:disabled {
+				pointer-events: none;
+				opacity: 0.5;
+			}
+		}
 	}
 
 	@include element(list) {
-		margin: 8px 0;
+		margin: 44px 0 8px;
 		padding: 0;
 		list-style: none;
 	}
