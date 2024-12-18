@@ -1,0 +1,20 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Input
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(input) {
+	width: 100%;
+	max-width: 100%;
+	flex: 1; // To ensure it shrinks with a flex container
+	margin: 0;
+	padding: 12px;
+	border: 0;
+	border-radius: 8px;
+	background: tint($color-secondary, 10%);
+	color: $color-neutral;
+	font-size: 16px;
+	line-height: 19px;
+}

@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({ type, ...props }) => {
 	return (
 		<input
 			type={ inputType }
-			className="lq-input"
+			className="rocketui-input"
 			{ ...props } />
 	);
 }

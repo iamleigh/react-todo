@@ -81,11 +81,11 @@ const Reminders: React.FC = () => {
 			<div className="rocketui-todo__form">
 				<Input
 					value={ todoLabel || '' }
+					placeholder="What needs to be done?"
 					onKeyDown={ handleEnter }
 					onChange={ handleInputChange } />
 
 				<Button
-					icon={<FontAwesomeIcon icon={ faAdd } />}
 					label="Add New"
 					onClick={ addItem } />
 			</div>
