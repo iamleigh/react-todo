@@ -7,7 +7,7 @@
 /// -----------------------------------------------------------------------------
 @include block(footer) {
 	padding: 16px 24px 40px;
-	color: tint($color-secondary, 50%);
+	color: tint($color-primary, 50%);
 	text-align: center;
 
 	p {
@@ -19,7 +19,7 @@
 	}
 
 	a {
-		color: tint($color-secondary, 80%);
+		color: tint($color-primary, 80%);
 		text-decoration: none;
 
 		&:hover {
