@@ -10,10 +10,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 };
 
 const Button: React.FC<ButtonProps> = ({ label, icon, lead, trail, size, design, ...props }) => {
-	let btnClass = 'lq-button';
+	let btnClass = 'rocketui-button';
 
 	// Set icon button class
-	btnClass += icon ? ' lq-button--icon' : '';
+	btnClass += icon ? ' rocketui-button--icon' : '';
 
 	// Set button style class
 	switch ( design ) {

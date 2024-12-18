@@ -1,0 +1,59 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Button
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(button) {
+	cursor: pointer;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	padding: 12px 16px;
+	border: 0;
+	border-radius: 8px;
+	background: $color-primary;
+	color: $color-neutral;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	text-align: left;
+	transition: 0.1s ease;
+
+	i {
+		flex: 0 0 auto;
+
+		&:first-child {
+			margin-right: 8px;
+		}
+
+		&:last-child {
+			margin-left: 8px;
+		}
+	}
+
+	span {
+		flex: 1;
+	}
+
+	&:hover {
+		background: shade($color-primary, 20%);
+	}
+
+	&:focus {
+		outline: 2px solid shade($color-primary, 20%);
+		outline-offset: 2px;
+		background: shade($color-primary, 20%);
+	}
+
+	&:disabled {
+		cursor: default;
+		background: tint($color-secondary, 10%);
+		color: tint($color-secondary, 40%);
+	}
+
+	@include modifier(full-width) {
+		width: 100%;
+	}
+}
